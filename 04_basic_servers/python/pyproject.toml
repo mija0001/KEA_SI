@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "basic-servers"
+version = "0.1.0"
+description = ""
+authors = ["Mikkel <mija0001@stud.kea.dk>"]
+readme = "README.md"
+packages = [{include = "basic_servers"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.91.0"
+uvicorn = "^0.20.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
