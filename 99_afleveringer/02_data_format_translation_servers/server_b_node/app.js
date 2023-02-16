@@ -1,4 +1,7 @@
 import express from "express";
+import { importBookFromJSON } from "./parser.js";
+import { importBookFromYAML } from "./parser.js";
+
 const app = express();
 
 app.get("/", (req, res) => {
@@ -8,7 +11,12 @@ app.get("/", (req, res) => {
 
 app.get("/book_from_json", (req, res) => {
 
-    res.json({"Hello": "World!"});
+    res.json(importBookFromJSON("data/book.json"));
+    });
+
+app.get("/book_from_yaml", (req, res) => {
+
+    res.json(importBookFromYAML("data/book.yaml"));
     });
 
 
