@@ -1,5 +1,5 @@
 import mysql.connector
-import credentials
+import credentials # Local credentials file to prevent publishing credentials to GitHub
 
 # Database requester class, used to get entries, only has SELECT privileges
 class DatabaseRequester:

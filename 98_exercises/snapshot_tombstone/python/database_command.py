@@ -1,5 +1,5 @@
 import mysql.connector
-import credentials
+import credentials # Local credentials file to prevent publishing credentials to GitHub
 import datetime
 
 # Database commander class, used to add, update and delete entries, only has INSERT and SELECT privileges

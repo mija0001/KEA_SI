@@ -1,5 +1,5 @@
 import mysql.connector
-import credentials
+import credentials # Local credentials file to prevent publishing credentials to GitHub
 
 # Database initializer class, used to create and reset tables, has full privileges, only used for testing purposes
 class DatabaseInitializer:
