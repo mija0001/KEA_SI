@@ -10,7 +10,7 @@ def root():
     return {"Hello": "World"}
 
 
-@app.get("/book_from_csv")
+@app.get("/book_from_json")
 def book_from_json():
     book = BookParser().import_book_from_json("data/book.json")
     return book
