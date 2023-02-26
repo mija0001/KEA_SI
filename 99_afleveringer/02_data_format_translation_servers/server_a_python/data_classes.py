@@ -1,12 +1,12 @@
 class BookData:
-    isbn10 = str();
-    isbn13 = str();
-    title = str();
-    author = str();
-    format = str();
-    copyright_year = str();
-    pages = str();
-    description = str();
+    isbn10 = str
+    isbn13 = str
+    title = str
+    author = str
+    format = str
+    copyright_year = str
+    pages = str
+    description = str
 
     def __init__(self, isbn10="", isbn13="", title="", author="", format="", copyright_year="", pages="", description=""):
         self.isbn10 = isbn10

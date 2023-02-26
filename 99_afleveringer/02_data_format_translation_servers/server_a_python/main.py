@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 import uvicorn
+import requests
 from data_classes import BookData
 from parser_classes import BookParser
 
@@ -37,6 +38,13 @@ def book_from_csv():
 @app.get("/book_from_txt")
 def book_from_txt():
     book = BookParser().import_book_from_txt("data/book.txt")
+    return book
+
+
+@app.get("/book_from_other_server")
+def book_from_txt():
+    response = requests.get("http://127.0.0.1:8001/book_from_json")
+    book = response.json()
     return book
 
 
