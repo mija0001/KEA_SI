@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "docker-compose"
+version = "0.1.0"
+description = ""
+authors = ["mija0001 <mija0001@stud.kea.dk>"]
+readme = "README.md"
+packages = [{include = "docker_compose"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+flask = "^2.2.3"
+redis = "^4.5.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
