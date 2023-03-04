@@ -1,0 +1,51 @@
+#Create the integrators database
+CREATE DATABASE integrator1 CHARACTER SET utf8;
+
+#Change active database to integrators database
+USE integrator1;
+
+#Create customers table
+CREATE TABLE 'customers' (
+  'id' int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  'first_name' varchar(255) NOT NULL,
+  'last_name' varchar(255) NOT NULL,
+  'phone' varchar(20) NULL,
+  'email' varchar(255) NULL,
+  'billing_address' varchar(255) NOT NULL
+);
+
+#Create invoices table
+CREATE TABLE 'invoices' (
+  'id' int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  'costumer_id' int NOT NULL,
+  'description' varchar(2000) NOT NULL,
+  'total' decimal(12,2) NOT NULL,
+  'paid_date' date NULL,
+  FOREIGN KEY ('costumer_id') REFERENCES 'costumers' ('id')
+);
+
+#Create employees table
+CREATE TABLE 'employees' (
+  'id' int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  'first_name' varchar(255) NOT NULL,
+  'last_name' varchar(255) NOT NULL,
+  'salary_no' int NOT NULL,
+  'social_security_no' int unsigned NOT NULL,
+  'phone' varchar(20) NOT NULL,
+  'email' varchar(255) NOT NULL,
+  'home_address' varchar(255) NOT NULL,
+  'start_date' date NOT NULL,
+  'termination_date' date NULL
+);
+
+#Create integrator user
+CREATE USER '[INTEGRATOR.USER]'@'%' IDENTIFIED BY '[INTEGRATOR.PASSWORD]';
+
+#Grant SELECT, UPDATE, INSERT, DELETE privileges on invoices table for integrator user
+GRANT INSERT, UPDATE, DELETE, SELECT ON integrator1.invoices TO '[INTEGRATOR.USER]'@'%';
+
+#Create customers_integrator view (view without phone)
+CREATE VIEW customers_integrator AS SELECT id, first_name, last_name, email, billing_address FROM customers;
+
+#Grant SELECT privileges on customer_integrator view for integrator user
+GRANT SELECT ON integrator1.customers_integrator TO '[INTEGRATOR.USER]'@'%';

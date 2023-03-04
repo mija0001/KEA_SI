@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <style>
+            h1 {
+                text-align: center;
+            }
+            
+            table, th, td {
+                border: 1px solid black;
+            }
+    
+            main {
+                min-height: calc(100vh - 40px);
+                margin: 0 4em 0 4em;
+            }
+    
+            table {
+                width: 100%;
+            }
+    
+            footer {
+                color: grey;
+                font-size: 0.8em;
+            }
+        </style>
+        <title>integrator1 - Docs</title>
+    </head>
+    <body>
+        <main>
+            <h1>integrator1</h1>
+    
+            <div class="database-table">
+        <h2 class="database-table-name">customers</h2>
+        <table class="database-table-body">
+            <tr>
+                <th>field</th><th>type</th><th>null</th><th>key</th><th>extra</th><th>keyTo</th>                 
+            </tr>
+    
+        </tr>
+        </thead>
+        <tbody>
+    
+            
+                <tr>
+                    <td>id</td><td>int</td><td>NO</td><td>PRI</td><td>auto_increment</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>first_name</td><td>varchar(255)</td><td>NO</td><td></td><td></td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>last_name</td><td>varchar(255)</td><td>NO</td><td></td><td></td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>phone</td><td>varchar(20)</td><td>YES</td><td></td><td></td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>email</td><td>varchar(255)</td><td>YES</td><td></td><td></td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>billing_address</td><td>varchar(255)</td><td>NO</td><td></td><td></td><td></td>
+                </tr>
+                
+    
+        </tbody>
+        </table>
+    
+        <h2 class="database-table-name">customers_integrator</h2>
+        <table class="database-table-body">
+            <tr>
+                <th>field</th><th>type</th><th>default</th><th>null</th><th>keyTo</th>                 
+            </tr>
+    
+        </tr>
+        </thead>
+        <tbody>
+    
+            
+                <tr>
+                    <td>id</td><td>int</td><td>0</td><td>NO</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>first_name</td><td>varchar(255)</td><td></td><td>NO</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>last_name</td><td>varchar(255)</td><td></td><td>NO</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>email</td><td>varchar(255)</td><td></td><td>YES</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>billing_address</td><td>varchar(255)</td><td></td><td>NO</td><td></td>
+                </tr>
+                
+    
+        </tbody>
+        </table>
+    
+        <h2 class="database-table-name">employees</h2>
+        <table class="database-table-body">
+            <tr>
+                <th>field</th><th>type</th><th>null</th><th>key</th><th>extra</th><th>keyTo</th>                 
+            </tr>
+    
+        </tr>
+        </thead>
+        <tbody>
+    
+            
+                <tr>
+                    <td>id</td><td>int</td><td>NO</td><td>PRI</td><td>auto_increment</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>first_name</td><td>varchar(255)</td><td>NO</td><td></td><td></td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>last_name</td><td>varchar(255)</td><td>NO</td><td></td><td></td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>salary_no</td><td>int</td><td>NO</td><td></td><td></td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>social_security_no</td><td>int unsigned</td><td>NO</td><td></td><td></td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>phone</td><td>varchar(20)</td><td>NO</td><td></td><td></td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>email</td><td>varchar(255)</td><td>NO</td><td></td><td></td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>home_address</td><td>varchar(255)</td><td>NO</td><td></td><td></td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>start_date</td><td>date</td><td>NO</td><td></td><td></td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>termination_date</td><td>date</td><td>YES</td><td></td><td></td><td></td>
+                </tr>
+                
+    
+        </tbody>
+        </table>
+    
+        <h2 class="database-table-name">invoices</h2>
+        <table class="database-table-body">
+            <tr>
+                <th>field</th><th>type</th><th>null</th><th>key</th><th>extra</th><th>keyTo</th>                 
+            </tr>
+    
+        </tr>
+        </thead>
+        <tbody>
+    
+            
+                <tr>
+                    <td>id</td><td>int</td><td>NO</td><td>PRI</td><td>auto_increment</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>costumer_id</td><td>int</td><td>NO</td><td>MUL</td><td></td><td>customers.id</td>
+                </tr>
+                
+                <tr>
+                    <td>description</td><td>varchar(2000)</td><td>NO</td><td></td><td></td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>total</td><td>decimal(12,2)</td><td>NO</td><td></td><td></td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>paid_date</td><td>date</td><td>YES</td><td></td><td></td><td></td>
+                </tr>
+                
+    
+        </tbody>
+        </table>
+    </div>
+            </main> 
+            <br><br>
+            <footer>Powered by MRO</footer>
+        </body>
+        </html>
