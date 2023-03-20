@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+{% block title %}
+Webhook admin panel
+{% endblock %}
+{% block content %}
+<h1>Webhook admin panel</h1>
+<hr>
+<div>
+    <form action="/registerwebhook" method="post">
+        <h2>Register webhook:</h2>
+        <p>
+        <b>Webhook URL:</b>
+        <input type="text" id="webhookUrl" name="webhookUrl" placeholder="" size="100%">
+        </p>
+        <p>
+        <b>Event type:</b>
+        <select name="eventType" id="eventType">
+            {% for eventType in listOfEventTypes %}
+            <option value="{{ eventType }}">{{ eventType }}</option>
+            {% endfor %}
+        </select>
+        </p>
+        <p>
+        <input type="submit" value="Register"> {{ addWebhookMessage }}
+        </p>
+    </form>
+</div>
+<hr>
+<div>
+<h2>Registered webhooks:</h2>
+<table class="webhooktable">
+    <tr>
+        <th width="80%">Webhook URL</th>
+        <th width="15%">Event type</th>
+        <th width="5%">Unregister</th>
+    </tr>
+    {% for webhook in listOfWebhooks %}
+    <tr>
+        <td>{{ webhook[0] }}</td>
+        <td>{{ webhook[1] }}</td>
+        <td>
+            <form action="/unregisterwebhook" method="post">
+            <input type="hidden" name="webhookUrl" value="{{ webhook[0] }}">
+            <input type="hidden" name="eventType" value="{{ webhook[1] }}">
+                <div class="center-aligned">
+                    <button type="submit" class="delete-button">X</button>
+                </div>
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+</div>
+{% endblock %}

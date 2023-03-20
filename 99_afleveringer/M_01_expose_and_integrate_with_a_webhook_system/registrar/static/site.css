@@ -1,0 +1,43 @@
+.body-content {
+    padding: 5px;
+}
+
+.center-aligned {
+    text-align: center;
+  }
+
+.delete-button {
+    background-color: red;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 100%;
+    height: 21px;
+    width: 21px;
+  }
+
+.webhooktable {
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+.webhooktable th {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+    text-align: left;
+  }
+
+.webhooktable td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+    text-align: left;
+  }
+
+h1 {
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+  }
