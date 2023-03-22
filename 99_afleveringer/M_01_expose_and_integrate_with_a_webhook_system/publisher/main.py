@@ -17,7 +17,7 @@ def getListOfWebhooksFromFile():
 
 def sendEventToWebhook(webhookUrl, eventType, message):
     try:
-        r = requests.post(webhookUrl, json={"messageType": "Event", "eventType": eventType, "message": message}, timeout=0.0001) # Very low timeout since we don't care about the response
+        r = requests.post(webhookUrl, json={"messageType": "Event", "eventType": eventType, "message": message}, timeout=0.1) # Low timeout since we don't care about the response
     except:
         pass
 

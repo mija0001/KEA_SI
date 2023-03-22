@@ -86,12 +86,12 @@ def pingWebhook(webhookUrl, eventType, message):
     'eventType': eventType,
     'message': message}
     try: 
-        r = requests.post(webhookUrl, json=data, timeout=0.0001) # Very low timeout since we don't care about the response
+        r = requests.post(webhookUrl, json=data, timeout=0.1) # Low timeout since we don't care about the response
     except:
         pass
  
     
 ### Run the app
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=80)
-    print("App is running on port 80")
+    app.run(host='0.0.0.0', port=8080)
+    print("App is running on port 8080")
