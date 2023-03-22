@@ -1,4 +1,5 @@
 from fastapi import FastAPI, Request, Response
+import uvicorn
 import json
 
 app = FastAPI()
@@ -11,3 +12,8 @@ async def webhook(request: Request, response: Response):
     print("Event type: " + data['eventType'])
     print("Message: " + data['message'])
     response.status_code = 200
+    
+
+# Start server with uvicorn on port 8000
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)
