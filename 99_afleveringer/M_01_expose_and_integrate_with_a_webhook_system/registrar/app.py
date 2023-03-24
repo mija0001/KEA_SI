@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, make_response, jsonify
 import requests
 
 ### Configuration
@@ -35,6 +35,32 @@ def unregisterwebhook():
     return render_template('index.html', listOfWebhooks=listOfWebhooks, listOfEventTypes=listOfEventTypes)
 
 
+@app.route('/api/registerwebhook', methods=['POST']) 
+def apiRegisterwebhook():
+    try:
+        data = request.get_json()
+        webhookUrl = data.get('webhookUrl')
+        eventType = data.get('eventType')
+        if addHookToList(webhookUrl, eventType):
+            return make_response("Webhook was added to the list", 200)
+        else:
+            return make_response("Webhook was not added to the list, it was already in the list, or something went wrong", 400)
+    except:
+        return make_response("Failed to parse request", 400)
+
+
+@app.route('/api/unregisterwebhook', methods=['POST'])
+def apiUnregisterwebhook():
+    try:
+        data = request.get_json()
+        webhookUrl = data.get('webhookUrl')
+        eventType = data.get('eventType')
+        removeWebhookFromList(webhookUrl, eventType)
+        return make_response("Webhook was removed from the list", 200)
+    except:
+        return make_response("Failed to parse request", 400)
+
+
 ### Functions
 # Returns True if the hook is in the list, False if not
 def isHookInList(webhookUrl, eventType):
@@ -46,7 +72,7 @@ def isHookInList(webhookUrl, eventType):
     return False
 
 
-# Adds the webhook to the list
+# Adds the webhook to the list TODO: Check if webhook is of a valid type.
 def addHookToList(webhookUrl, eventType):
     if isHookInList(webhookUrl, eventType):
         return False
