@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Webhook system documentation</title>
+    </head>
+
+    <body>
+        <div class="body-content"> 
+            <div>
+                <h1>Webhook system</h1>
+                <p>
+                    The webhook system allows you to register a webhook URL, to receive updates when a specific event occurs, since the system is just a demo and not a real system, only dummy and ping events will be sent.<br>
+                    The system sends a dummy event once every minute, cycling through each event type, so that every type of event is sent once every 5 minutes. The system also sends a ping event when a webhook is registered.
+                </p>
+                <hr>
+                <h2>How to access and use the webhook system</h2>
+                <h3>Admin panel</h3>
+                <p>
+                    The system can be accessed through the admin panel at: <a href="http://40.118.56.97:8080">http://40.118.56.97:8080</a><br>
+                    This panel allows you to register and unregister webhooks, as well as view a list of all currently registered webhooks.
+                </p>
+                <h3>API</h3>
+                <div>
+                    The system can also be accessed through the API.
+                    <br><br>
+                    <b>Register webhook</b>
+                    <br>
+                    To register a webhook through the API, send a POST request to the following URL: http://40.118.56.97:8080/api/registerwebhook
+                    <br><br>
+                    The request body should contain a JSON object following this format:
+                    <br>
+                    <div style="margin: 10px; background-color: lightgray; width: fit-content;">
+                        <code>
+                            {<br>
+                                "webhookUrl": "http://example.com:8000/webhook",<br>
+                                "eventType": "eventType"<br>
+                            }
+                        </code>
+                    </div>
+                    A ping event will be sent to the webhook URL when it is registered.<br><br>
+                    Please note that the webhook URL should include the protocol (http:// or https://), aswell as the endpoint (/webhook) and port number (:8000) if applicable.<br>
+                    The event type should be one of the types listed below, and is case sensitive.
+                    <br><br>
+                    <b>Unregister webhook</b>
+                    <br>
+                    To unregister a webhook through the API, send a POST request to the following URL: http://40.118.56.97:8080/api/unregisterwebhook
+                    <br><br>
+                    The request body should contain a JSON object following this format:
+                    <br>
+                    <div style="margin: 10px; background-color: lightgray; width: fit-content;">
+                        <code>
+                            {<br>
+                                "webhookUrl": "http://example.com:8000/webhook",<br>
+                                "eventType": "eventType"<br>
+                            }
+                        </code>
+                    </div>
+                    Please note that the webhook URL should include the protocol (http:// or https://), aswell as the endpoint (/webhook) and port number (:8000) if applicable.<br>
+                    The event type should be one of the types listed below, and is case sensitive.
+                </div>
+                <h3>Event types</h3>
+                <div>
+                    The following event types are currently supported:
+                    <ul>
+                        <li>OrderCreated</li>
+                        <li>OrderUpdated</li>
+                        <li>OrderCancelled</li>
+                        <li>OrderPaid</li>
+                        <li>OrderFulfilled</li>
+                    </ul>
+                </div>
+                <h3>Event example</h3>
+                When one of the above events occurs, the webhook system will send a POST request to the registered webhook URL.<br>
+                The request body will contain a JSON object following this format:
+                <div style="margin: 10px; background-color: lightgray; width: fit-content;">
+                    <code>
+                        {<br>
+                            "messageType": "messageType",<br>
+                            "eventType": "eventType",<br>
+                            "message": "message"<br>
+                        }
+                    </code>
+                </div>
+                <ul>
+                    <li><b>messageType</b> - The type of message. This will be either "ping" or "event".</li>
+                    <li><b>eventType</b> - The type of event that occurred. One of the types listed above.</li>
+                    <li><b>message</b> - The event message, this will follow the form: "Order id: ##### was [EVENTTYPE]" <i>[EVENTTYPE] will be replaced with 'created', 'cancelled', etc.</i></li>
+                </ul>
+                <b>Example of an event message</b>
+                <div style="margin: 10px; background-color: lightgray; width: fit-content;">
+                    <code>
+                        {<br>
+                            "messageType": "event",<br>
+                            "eventType": "OrderFulfilled",<br>
+                            "message": "Order id: 12345 was fulfilled"<br>
+                        }
+                    </code>
+                </div>
+            </div>
+            <hr>
+        </div>
+    </body>
+</html>
