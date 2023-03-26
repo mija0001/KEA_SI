@@ -17,3 +17,17 @@ The system must be deployed at one point but it’s not requirement for it to ru
 
 -Documentation.
 As always, all information on how to integrate should be clear via documentation.
+
+
+--- Solution ---
+/registrar/app.py - A server that serves a webpage interface for registering, listing and unregistering webhooks, aswell as API endpoints for registering and unregistering.
+/publisher/main.py - A script that sends a randomized dummy event to the registered webhooks every 60 seconds.
+/data/webhooks.csv - A CSV file for persistent storage of the registered webhooks, used by both the Registrar and Publisher.
+/webhook/main.py - A server with a webhook endpoint that can receive events from the exposees webhook system.
+/integrator_script/main.py - A script that can register or unregister the webhook with all event types to the exposees webhook system.
+/documentation.html - The documentation on were to reach and how to use the webhook system.
+
+The Registrar and Publisher were hosted on a Azure VM and the documentation was made available to the integrator, so they could test the system.
+The Webhook and integrator_script were run locally using ngrok, to test the exposees system.
+
+Note: since I never received access to my partners system, the integrator part of the assignment was done against my own system.
