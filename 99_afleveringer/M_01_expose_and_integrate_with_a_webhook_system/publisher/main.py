@@ -62,7 +62,7 @@ def orderFulfilled(OrderId):
             sendEventToWebhook(webhookUrl, eventType, "Order id: " + str(OrderId) + " was fulfilled")
 
 
-### Test code for generating events
+### Test code for generating events with random order ids every 60 seconds cycling through all event types
 if __name__ == "__main__":
     while(True):
         time.sleep(60)
