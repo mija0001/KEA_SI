@@ -10,7 +10,7 @@ First we need to setup a Google API client.
 6. Click 'Authorized JavaScript origins' -> 'ADD URI', and enter the domain/ip of the application. Since this is example is running on localhost, we will enter http://127.0.0.1/
 7. Click 'Authorized redirect URIs' -> 'ADD URI', and enter the domain/ip + endpoint of the app callback endpoint. Since this is example is running on localhost, we will enter http://127.0.0.1/login/authorized/
 8. Click 'Create'
-9. Once the client has been created, copy the 'Client ID' and 'Client secret'. These are the secrets used to authenticate the app to the Google OAuth service.
+9. Once the client has been created, copy the 'Client ID' and 'Client secret'.<br>These are the secrets used to authenticate the app to the Google OAuth service.
 
 ### Setup the application
 1. Clone the files from the repository to you project folder.
