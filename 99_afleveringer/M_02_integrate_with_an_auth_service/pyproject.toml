@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "m-02-integrate-with-an-auth-service"
+version = "0.1.0"
+description = ""
+authors = ["mija0001 <mija0001@stud.kea.dk>"]
+readme = "README.md"
+packages = [{include = "m_02_integrate_with_an_auth_service"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+flask = "^2.2.3"
+flask-login = "^0.6.2"
+flask-oauthlib = "^0.9.6"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
