@@ -15,6 +15,7 @@ First we need to setup a Google API client.
 ### Setup the application
 1. Clone the files from the repository to you project folder.
 2. On the same level as app.py, create a file names credentials.py, the files contents should be: 
+
 (Replace square brackets with the secrets from the Google API client section)
 ```
     google_client_id = "[CLIENT-ID]"
