@@ -1,7 +1,7 @@
-### OAuth example with Google
+# OAuth example with Google
 ## Setup
-# Setup the Google API client
-First we need to setup a Google API client.
+### Setup the Google API client
+First we need to setup a Google API client. 
 1. Go to https://console.cloud.google.com/apis/
 2. Click 'Credentials' in the navigation pane.
 3. Click 'Create Credential' -> 'OAuth client ID'
@@ -12,9 +12,10 @@ First we need to setup a Google API client.
 8. Click 'Create'
 9. Once the client has been created, copy the 'Client ID' and 'Client secret'. These are the secrets used to authenticate the app to the Google OAuth service.
 
-# Setup the application
+### Setup the application
 1. Clone the files from the repository to you project folder.
-2. On the same level as app.py, create a file names credentials.py, the files contents should be: (Replace square brackets with the secrets from the Google API client section)
+2. On the same level as app.py, create a file names credentials.py, the files contents should be: 
+(Replace square brackets with the secrets from the Google API client section)
 ```
     google_client_id = "[CLIENT-ID]"
     google_client_secret = "[CLIENT-SECRET]"
@@ -23,5 +24,5 @@ First we need to setup a Google API client.
 4. Enter: poetry init -n
 5. Enter: poetry add flask flask-oauthlib
 6. Enter: poetry shell
-7. Enter: python app.py
+7. Enter: python app.py 
 The server is now be running, and is accessible at http://127.0.0.1:8000
