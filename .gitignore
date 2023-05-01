@@ -469,3 +469,6 @@ poetry.toml
 ### Credentials ###
 # Ignore credential files
 credentials.py
+
+# Ignore upload files
+uploads/
