@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "m-02-web-scraping"
+version = "0.1.0"
+description = ""
+authors = ["mija0001 <mija0001@stud.kea.dk>"]
+readme = "README.md"
+packages = [{include = "m_02_web_scraping"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+requests = "^2.31.0"
+beautifulsoup4 = "^4.12.2"
+lxml = "^4.9.2"
+mysql-connector-python = "^8.0.33"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
