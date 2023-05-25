@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "3-scrapy-basic"
+version = "0.1.0"
+description = ""
+authors = ["mija0001 <mija0001@stud.kea.dk>"]
+readme = "README.md"
+packages = [{include = "3_scrapy_basic"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+scrapy = "^2.9.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
